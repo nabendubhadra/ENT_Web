@@ -1,0 +1,231 @@
+﻿@model ENT_Web.Models.AdminModel.Publication
+    @using System.Data;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    TempData["Issue"]=  "current dropdown";
+
+    DataSet ds = (DataSet)ViewBag.Publication;
+}
+<!-- page-title -->
+<section class="page-title centred" style="background-image: url(/images/background/page-title.jpg);">
+    <div class="container">
+        <div class="content-box">
+            <div class="title">Journal Articles</div>
+            <ul class="bread-crumb">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li>Journal Articles</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+<!-- articles-section -->
+<section class="articles-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 offset-lg-2 column">
+                <div class="products-discription">
+                    <div class="custom-tab-title centred">
+                        <ul class="tab-title clearfix">
+                            <li data-tab-name="details" class="active">Jan-Mar</li>
+                            <li data-tab-name="review">Apr-Jun</li>
+                            <li data-tab-name="review-2">Jul-Aug</li>
+                            <li data-tab-name="review-3">Sept- Nov</li>
+                        </ul>
+                    </div>
+                    <div class="tab-details-content">
+                        <div class="tab-content" id="details">
+                            <div class="single-tab-content">
+                                @{ 
+                                    if (ds != null && ds.Tables[0].Rows.Count > 0)
+                                    {
+                                        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                                        {
+                                <div class="single-item">
+                                    <h5><a href="@Url.Action("ArticleDetails","Article", new { id = ds.Tables[0].Rows[i]["PublicationId"]})">@ds.Tables[0].Rows[i]["ArticleName"].ToString()</a></h5>
+                                    @*<div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Aug,2018)</div>*@
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <br />
+                                        <div class="link"><a target="_blank" href="@Url.Content("~/images/gallery/" + @ds.Tables[0].Rows[i]["PDFFile"].ToString())"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                            }
+                                        }
+                                    }
+                                @*<div class="single-item">
+                                    <h5>Mitochondria and the Future of Medicine: The Key to Understanding Disease, Chronic Illness, Aging, and Life Itself, <span>Vol.</span> 45, <span>No.</span> 2, <span>PP.</span> 124-342</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Sep,2018)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>*@
+                                @*<div class="single-item">
+                                    <h5>This Is Your Brain on Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society Significant <span>Vol.</span> 50, <span>No.</span> 5, <span>PP.</span> 214-222</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Oct,2018)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>*@
+                                @*<div class="single-item">
+                                    <h5>The Epigenetics Revolution: How Modern Biology Is Rewriting Our Understanding of Genetics, Disease, and Inheritance<span>Vol.</span> 80, <span>No.</span> 7, <span>PP.</span> 324-542</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Nov,2018)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>*@
+                                @*<div class="single-item">
+                                    <h5>Identification of Significant Genes and Pathways Related to Lung Cancer via Statistical Methods(2018), <span>Vol.</span> 59, <span>No.</span> 3, <span>PP.</span> 224-242</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Dec,2018)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>*@
+                                   
+                            </div>
+                        </div>
+                        @*<div class="tab-content" id="review">
+                            <div class="single-tab-content">
+                                <div class="single-item">
+                                    <h5>Identification of Significant Genes and Pathways Related to Lung Cancer via Statistical Methods(2018), <span>Vol.</span> 59, <span>No.</span> 3, <span>PP.</span> 224-242</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Aug,2009)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>Mitochondria and the Future of Medicine: The Key to Understanding Disease, Chronic Illness, Aging, and Life Itself, <span>Vol.</span> 45, <span>No.</span> 2, <span>PP.</span> 124-342</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Sep,2009)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>This Is Your Brain on Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society Significant <span>Vol.</span> 50, <span>No.</span> 5, <span>PP.</span> 214-222</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Oct,2009)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>The Epigenetics Revolution: How Modern Biology Is Rewriting Our Understanding of Genetics, Disease, and Inheritance<span>Vol.</span> 80, <span>No.</span> 7, <span>PP.</span> 324-542</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Nov,2009)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>Identification of Significant Genes and Pathways Related to Lung Cancer via Statistical Methods(2018), <span>Vol.</span> 59, <span>No.</span> 3, <span>PP.</span> 224-242</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Dec,2009)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="tab-content" id="review-2">
+                            <div class="single-tab-content">
+                                <div class="single-item">
+                                    <h5>Identification of Significant Genes and Pathways Related to Lung Cancer via Statistical Methods(2018), <span>Vol.</span> 59, <span>No.</span> 3, <span>PP.</span> 224-242</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Aug,2004)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>Mitochondria and the Future of Medicine: The Key to Understanding Disease, Chronic Illness, Aging, and Life Itself, <span>Vol.</span> 45, <span>No.</span> 2, <span>PP.</span> 124-342</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Sep,2004)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>This Is Your Brain on Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society Significant <span>Vol.</span> 50, <span>No.</span> 5, <span>PP.</span> 214-222</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Oct,2004)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>The Epigenetics Revolution: How Modern Biology Is Rewriting Our Understanding of Genetics, Disease, and Inheritance<span>Vol.</span> 80, <span>No.</span> 7, <span>PP.</span> 324-542</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Nov,2004)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>Identification of Significant Genes and Pathways Related to Lung Cancer via Statistical Methods(2018), <span>Vol.</span> 59, <span>No.</span> 3, <span>PP.</span> 224-242</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Dec,2004)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="tab-content" id="review-3">
+                            <div class="single-tab-content">
+                                <div class="single-item">
+                                    <h5>Identification of Significant Genes and Pathways Related to Lung Cancer via Statistical Methods(2018), <span>Vol.</span> 59, <span>No.</span> 3, <span>PP.</span> 224-242</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Aug,1999)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>Mitochondria and the Future of Medicine: The Key to Understanding Disease, Chronic Illness, Aging, and Life Itself, <span>Vol.</span> 45, <span>No.</span> 2, <span>PP.</span> 124-342</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Sep,1999)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>This Is Your Brain on Parasites: How Tiny Creatures Manipulate Our Behavior and Shape Society Significant <span>Vol.</span> 50, <span>No.</span> 5, <span>PP.</span> 214-222</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Oct,1999)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>The Epigenetics Revolution: How Modern Biology Is Rewriting Our Understanding of Genetics, Disease, and Inheritance<span>Vol.</span> 80, <span>No.</span> 7, <span>PP.</span> 324-542</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Nov,1999)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                                <div class="single-item">
+                                    <h5>Identification of Significant Genes and Pathways Related to Lung Cancer via Statistical Methods(2018), <span>Vol.</span> 59, <span>No.</span> 3, <span>PP.</span> 224-242</h5>
+                                    <div class="text">by Jennifer A. Doudna, Samuel H. Sternberg<br />Houghton Mifflin Harcourt (Dec,1999)</div>
+                                    <div class="lower-content clearfix">
+                                        <div class="text"><span>DOI:</span> 10.4236/abb.2018.99028</div>
+                                        <div class="link"><a href="#"><i class="fa fa-file-pdf-o"></i>Download PDF</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- articles-section end -->

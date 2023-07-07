@@ -1,0 +1,167 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    TempData["Contact"] = "current dropdown";
+}
+
+<!-- page-title -->
+<section class="page-title centred" style="background-image: url(/images/background/page-title.jpg);">
+    <div class="container">
+        <div class="content-box">
+            <div class="title">Contact Us</div>
+            <ul class="bread-crumb">
+                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="about-style-three">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 content-column">
+                <div class="content-box">
+                    <div class="top-text"><h3 style="color:#b28824">Mailing Address:</h3></div>
+                    <div class="text">                        
+                        <b>Somnath Saha</b>  <br>
+                        Chittaranjan Otolaryngologists Society <br>
+                        91 , Sarath Chaterjee Road , Barat Colony ,Lake Town , North 24 Parganas<br>
+                        South Dumdum,Kolkata - 700089<br />
+                        West Bengal<br />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-12 col-sm-12 content-column">
+                <div class="content-box">
+                    <div class="top-text"><h3 style="color:#b28824">Principal Contact:</h3></div>
+                    <div class="text">                       
+                        <b>Prof.Dr.Somnath Saha</b>  <br>
+                        Chittaranjan Otolaryngologists Society <br>
+                        91 , Sarath Chaterjee Road , Barat Colony ,Lake Town , North 24 Parganas<br>
+                        South Dumdum,Kolkata - 700089<br />
+                        West Bengal<br />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-md-12 col-sm-12 content-column">
+                <div class="content-box">
+                    <div class="top-text"><h3 style="color:#b28824" id="in_h">Email:</h3> <p class="top_text_p">editor.wjehns@gmail.com</p></div>
+                    <div class="text">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 col-md-12 col-sm-12 content-column">
+                <div class="content-box">
+                    <div class="top-text"><h3 style="color:#b28824">Mobile:</h3></div>
+                    <div class="text">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        </div>
+</section>
+<!-- page-title end -->
+<!-- contact-section -->
+@*<section class="contact-section">
+    <div class="container">
+        <div class="row">
+            <div class="inner-content">
+                <div class="content-style-one">
+                    <div class="inner-title">Contact Details</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 content-column">
+                    <div class="inner-content">
+                        <div class="content-style-one">
+                            <div class="inner-title">Masters, Mphil and Honours</div>
+                            <div class="text">
+                                <p>Quasi architebeatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptassit. aspernatur aut odit fugit sed quia consequuntur magni dolores eos qui ratione voluptam sequi nescuntneque porro quisquam  dolorem ipsum quia dolor sit amet consectetur adipiscing velit sed quia numquam eius modi tempora incidunt ut labore et dolore consectetur adipisicing elit sed eiusmod tempor incididunt.ut labore et dolore magna aliqua enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore.</p>
+                            </div>
+                        </div>
+                        <div class="content-style-two">
+                            <div class="inner-title">PHD Opportunities</div>
+                            <div class="text">
+                                <p>Quasi architebeatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptassit. aspernatur aut odit fugit sed quia consequuntur magni dolores eos qui ratione voluptam sequi nescuntneque porro quisquam  dolorem ipsum quia dolor sit amet consectetur adipiscing velit sed quia numquam eius modi tempora incidunt ut labore et dolore consectetur adipisicing elit sed eiusmod tempor incididunt.ut labore et dolore magna aliqua enim ad minim veniam.</p>
+                            </div>
+                        </div>
+                        <div class="content-style-three">
+                            <div class="inner-title">Postdoctoral Fellow</div>
+                            <div class="text">
+                                <p>Quasi architebeatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptassit. aspernatur aut odit fugit sed quia consequuntur magni dolores eos qui ratione voluptam sequi nescuntneque porro quisquam  dolorem ipsum quia dolor sit amet consectetur adipiscing velit sed quia numquam eius modi tempora incidunt ut labore et dolore consectetur adipisicing elit sed eiusmod tempor incididunt.ut labore et dolore magna aliqua enim ad minim veniam.</p>
+                            </div>
+                        </div>
+                        <div class="contact-form-area">
+                            <form id="contact-form" name="contact_form" class="default-form" action="http://html.tonatheme.com/2019/Aculia/inc/sendmail.php" method="post">
+                                <div class="form-group">
+                                    <label>Your Name</label>
+                                    <input type="text" name="form_name" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Your Email</label>
+                                    <input type="email" name="form_email" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Your Phone</label>
+                                    <input type="text" name="form_subject" required="">
+                                </div>
+                                <div class="form-group">
+                                    <label>Your Message</label>
+                                    <textarea name="form_message" required=""></textarea>
+                                </div>
+                                <div class="contact-button">
+                                    <button type="submit" class="theme-btn" data-loading-text="Please wait...">Send Message</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-column">
+                <div class="sidebar-content">
+                    <div class="single-item">
+                        <h4>Mailing Address: </h4>
+                        <div class="text">
+                            World Journal Of ENT-Head & Neck Surgery (WJEHNS) <br>
+                            <b>Prof.Dr.Somnath Saha</b>  <br>
+                            The Chittaranjan ENT Society, West Bengal <br>
+                            CE 1/B/112, Street No. 181, Near NBCC Shopping Complex, <br>
+                            AA 1, New Town, <br>
+                            Kolkata - 156.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-column"> </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-column">
+                <div class="sidebar-content">
+                    <div class="single-item">
+                        <h4>Principal Contact:</h4>
+                        <div class="text">
+                            Editor-In-Chief <br>
+                            <b>Prof.Dr.Somnath Saha</b>  <br>
+
+                            The Chittaranjan ENT SOCIETY, West Bengal <br>
+                            CE 1/B/112, Street No. 181, Near NBCC Tower, <br>
+                            AA 1, New Town, Kolkata - 700156. <br>
+
+                            Email: <a href="editor.wjehns@gmail.com">editor.wjehns@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="link"><a href="#" class="theme-btn">Request for member</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ contact-section end*@ 

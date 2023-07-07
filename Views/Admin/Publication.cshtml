@@ -1,0 +1,190 @@
+﻿@model ENT_Web.Models.AdminModel.Publication
+@{
+    ViewBag.Title = "Publication";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h2>Publication</h2>
+        <p></p>
+
+        <div class="m-t-25">
+            @using (Html.BeginForm("Publication", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Heading :</label>
+                    <div class="col-sm-5">
+                        @Html.DropDownListFor(m => m.IssueId, new SelectList(Model.IssueHeadingList, "IssueId", "IssueHeading"), "Heading", new { @class = "form-control" })
+                        @Html.HiddenFor(m => m.IssueId)
+                        @*<select class="form-control">
+                                <option selected>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                            </select>*@
+                    </div>
+                    @Html.HiddenFor(m => m.PublicationId)
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Article Number :</label>
+                    <div class="col-sm-5">
+                        @*<input type="number" min="0" class="form-control" placeholder="">*@
+                        @Html.TextBoxFor(m => m.ArticleNumber, new { @class = "form-control", @min = "0", @type = "number" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Name :</label>
+                    <div class="col-sm-5">
+                        @*<input type="number" min="0" class="form-control" placeholder="">*@
+                        @Html.TextBoxFor(m => m.ArticleName, new { @class = "form-control", @type = "text", required = "required" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Image :</label>
+                    <div class="col-sm-5">
+                        <input type="file" class="form-control" id="img" name="ImageData" onchange="showMyImage(this)">
+                        <div>Please use Image of resolution 370 X 370 </div>
+                        <img id="thumbnail" src="@Url.Content("~/images/gallery/" + ViewBag.Image)" style="max-width: 100%;height: 100px; border-radius:10px;">
+                        @Html.HiddenFor(m => m.ArticleImage)
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Description :</label>
+                    <div class="col-sm-5">
+                        @*<textarea class="form-control" rows="10" placeholder=""></textarea>*@
+                        @Html.TextAreaFor(m => m.Details, new { @class = "form-control", @rows = "10" , required = "required" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">PDF :</label>
+                    <div class="col-sm-5">
+                        <input type="file" class="form-control" id="doc" name="DocData" onchange="showMyDoc(this)">
+                        @Html.HiddenFor(m => m.PDFFile)
+                        @*<img id="docnail" src="@Url.Content("~/images/gallery/" + Model.PDFFile)" style="max-width: 100%;height: 100px; border-radius:10px;">*@
+                        @{
+                            if (!string.IsNullOrEmpty(Model.PDFFile))
+                            {
+                                <br />
+                                <div>This is your file : @Model.PDFFile, Click on the icon to download.</div>
+                                <a href="@Url.Action("../images/gallery/" + Model.PDFFile)" download> <img src="@Url.Content("~/images/gallery/pdf.png")" style="max-width: 100%;height: 50px; border-radius:10px;" /></a>
+                            }
+                            else
+                            {
+                                <img src="@Url.Content("~/images/gallery/no-pdf.png")" style="max-width: 100%;height: 50px; border-radius:10px;" />
+                            }
+                        }
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" value="Submit">Save</button>
+
+                            }
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    function checkImgExtension(elem) {
+        var filePath = elem.value;
+        if (filePath.indexOf('.') == -1)
+            return false;
+        var validExtensions = new Array();
+        var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+        validExtensions[0] = 'jpg';
+        validExtensions[1] = 'jpeg';
+        validExtensions[2] = 'bmp';
+        validExtensions[3] = 'png';
+        validExtensions[4] = 'gif';
+        for (var i = 0; i < validExtensions.length; i++) {
+            if (ext == validExtensions[i])
+                return true;
+        }
+        alert('The file extension ' + ext.toUpperCase() + ' is not allowed!');
+        elem.value = null;
+        return false;
+    }
+
+    function checkFileExtension(elem) {
+        var filePath = elem.value;
+        if (filePath.indexOf('.') == -1)
+            return false;
+        var validExtensions = new Array();
+        var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+        validExtensions[0] = 'pdf';
+        validExtensions[1] = 'doc';
+        validExtensions[2] = 'docx';
+        for (var i = 0; i < validExtensions.length; i++) {
+            if (ext == validExtensions[i])
+                return true;
+        }
+        alert('The file extension ' + ext.toUpperCase() + ' is not allowed!');
+        elem.value = null;
+        return false;
+    }
+
+    function checkFileSize(elem) {
+
+        var fileSize = elem.files[0].size / 1024;
+        if (fileSize == 0 || fileSize > 200000) {
+            alert('The file size  ' + elem.files[0].size / 1024 + ' kb is not allowed!');
+            //$('#thumbnil').val('');
+            return false;
+        }
+        else { return true; }
+    }
+
+    function showMyImage(fileInput) {
+        if (checkImgExtension(fileInput) == true && checkFileSize(fileInput)) {
+
+            var files = fileInput.files;
+
+            var i;
+            for (i = 0; i < files.length; i++) {
+                var file = files[i];
+                var imageType = /image.*/;
+                if (!file.type.match(imageType)) {
+                    continue;
+                }
+                var img = document.getElementById("thumbnail");
+                img.file = file;
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                })(img);
+
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+
+    function showMyDoc(fileInput) {
+        if (checkFileExtension(fileInput) == true) {
+
+            var files = fileInput.files;
+
+            var i;
+            for (i = 0; i < files.length; i++) {
+                var file = files[i];
+                var FileType = /file.*/;
+                if (!file.type.match(FileType)) {
+                    continue;
+                }
+                //var doc = document.getElementById("docnail");
+                //doc.file = file;
+                //var reader = new FileReader();
+                //reader.onload = (function (aDoc) {
+                //    return function (e) {
+                //        aDoc.src = e.target.result;
+                //    };
+                //})(doc);
+
+                //reader.readAsDataURL(file);
+            }
+        }
+    }
+</script>
+

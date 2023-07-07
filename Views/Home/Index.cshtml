@@ -1,0 +1,339 @@
+﻿@using System.Data;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    TempData["Home"] = "current dropdown";
+
+    DataSet ds = (DataSet)ViewBag.CMS;
+    DataSet ds2 = (DataSet)ViewBag.Issue;
+    DataSet ds3 = (DataSet)ViewBag.Publication;
+}
+
+<!-- main-slider -->
+<section class="main-slider slider-style-two">
+
+    <div class="main-slider-carousel owl-carousel owl-theme">
+
+        <div class="slide" style="background-image:url(/images/main-slider/ENT_1copy.jpg)">
+            <div class="container">
+                <div class="content-box">
+                    <h1>Chittaranjan Otolaryngologists Society World Journal Of ENT & HEAD-NECK Surgery Open Access <span>|</span> Double-Blind <span>|</span> Peer Reviewed</h1>
+                    @*<div class="slider-btn">
+                            <a href="@Url.Action("Index", "About")" class="theme-btn slide-btn-one">Our Services</a>
+                        </div>*@
+                </div>
+                <div class="index_box">
+                    @if (ds != null && ds.Tables[0].Rows.Count > 0)
+                    {
+
+                         <h4>@ds.Tables[0].Rows[0]["CMSType"].ToString()</h4>
+                         <h6>@ds.Tables[0].Rows[0]["Details"].ToString()</h6>   
+                         <a href="@ds.Tables[0].Rows[0]["Link"].ToString()">Read More</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image:url(/images/main-slider/ENT_7copy.jpg)">
+            <div class="container">
+                <div class="content-box">
+                    <h1 id="first_mar">WJEHNS is dedicated to bring the otorhinolaryngologists around the world together..</h1>
+                    @*<div class="slider-btn">
+                            <a href="@Url.Action("Index", "About")" class="theme-btn slide-btn-one">Our Services</a>
+                        </div>*@
+                </div>
+                <div class="index_box">
+                    @if (ds != null && ds.Tables[0].Rows.Count > 0)
+                    {
+                        <h4>@ds.Tables[0].Rows[0]["CMSType"].ToString()</h4>
+                        <h6>@ds.Tables[0].Rows[0]["Details"].ToString()</h6>
+                        <a href="@ds.Tables[0].Rows[0]["Link"].ToString()">Read More</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image:url(/images/main-slider/ENT_2copy.jpg)">
+            <div class="container">
+                <div class="content-box">
+                    <h1 id="second_mar">WJEHNS utilizes multiple channels to deliver authoritative and timely content..</h1>
+                    @*<div class="slider-btn">
+                            <a href="@Url.Action("Index", "About")" class="theme-btn slide-btn-one">Our Services</a>
+                        </div>*@
+                </div>
+                <div class="index_box">
+                    @if (ds != null && ds.Tables[0].Rows.Count > 0)
+                    {
+                        <h4>@ds.Tables[0].Rows[0]["CMSType"].ToString()</h4>
+                        <h6>@ds.Tables[0].Rows[0]["Details"].ToString()</h6>
+                        <a href="@ds.Tables[0].Rows[0]["Link"].ToString()">Read More</a>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- main-slider end -->
+<!-- about-style-three -->
+<section class="about-style-three">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 title-column">
+                <div class="title-box">
+                    <div class="sec-title"><h2>Chittaranjan Otolaryngologists Society</h2><h1>World Journal Of ENT & HEAD-NECK Surgery</h1> </div>
+                    <div class="title-text">Registered Under Society Registration Act XXVI of 1961, India</div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-12 content-column">
+                <div class="content-box">
+                    <div class="top-text"></div>
+                    <div class="text">
+                        The World Journal of ENT - Head & Neck Surgery (WJEHNS) is a national, quarterly, open access, peer reviewed journal published by Chittaranjan ENT Society (Registered Under Society Registration Act XXVI of 1961, India). WJEHNS is dedicated to bring the otorhinolaryngologists around the world together as a specialty community and voice their opinion through a common academic mouthpiece. The journal has a broad coverage of relevant topics in the field of otorhinolaryngology in general, and its various subspecialties such as otology, rhinology, laryngology, hed-neck surgery, neurotology, skull-base surgery, allergy, phonosurgery & related topics like obstructive sleep apnea, facial plastic surgery, maxillofacial surgery & pediatric otorhinoloaryngology. WJEHNS aims to cater genuine research works and is committed to foster excellence in the field. Innovative, path-breaking ideas and their rational execution for the betterment of science and for alleviation of the patients’ sufferings are most welcome. Accepted articles are published online within a short time following thorough and rigorous peer review of the submitted manuscripts. The journal allows free access to its contents for the readers around the world immediately after their publication in the online platform. Their print version follows soon after the online publication. The types of articles accepted include original research articles, review articles, analytic reviews such as meta-analyses, insightful editorials, medical news, case reports/series, short communications, correspondence/letters to the Editor, images in medical practice, short write-ups like clinical nuggets/problem solving cases, perspectives, new surgical techniques, and book reviews. The journal publishes with the objective to explore cutting-edge information on the latest trends, developments and happenings throughout the world in the stream of Otorhinolaryngology and Head-Neck surgery. WJEHNS utilizes multiple channels to deliver authoritative and timely content that informs, engages,
+                        and shapes the otorhinolaryngology stream now, and in the days to come.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="team-section">
+    <div class="container">
+        @*<div class="title-box">
+                <div class="sec-title">Team Member</div>
+                <div class="title-text">Our Team</div>
+            </div>*@
+        <div class="row">
+
+            @{
+                if (ds != null && ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 1; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        <div class="col-lg-4 col-md-6 col-sm-12 team-column">
+                            <div class="single-team-content inner-box">
+                                <div class="lower-content">
+                                    <h4>@ds.Tables[0].Rows[i]["CMSType"].ToString()</h4>
+                                </div>
+                                <figure class="image-box">
+                                    <img src="@Url.Content("~/images/gallery/" + ds.Tables[0].Rows[i]["ImageFile"].ToString())" alt="">
+                                </figure>
+                                    <div class="content-box">
+                                        <div class="wrapper">
+                                            <div>@ds.Tables[0].Rows[i]["Details"].ToString()</div>
+                                        </div>
+                                        <div class="more_btn">
+                                            <a href="#">Read More</a>
+                                        </div>
+                                    </div>
+                                
+
+                            </div>
+                        </div>
+                    }
+                }
+            }
+            
+        </div>
+    </div>
+</section>
+
+<!-- about-style-three end -->
+<!-- service-style-two -->
+@*<section class="service-style-two">
+        <div class="container">
+            <div class="row">
+                @{
+                    if (ds != null && ds.Tables[0].Rows.Count > 0)
+                    {
+                        for (int i = 1; i < ds.Tables[0].Rows.Count; i++)
+                        {
+                <div class="col-lg-4 col-md-6 col-sm-12 service-column">
+                    <div class="single-service-content">
+
+                        <div class="lower-content">
+
+                              <h5>@ds.Tables[0].Rows[i]["CMSType"].ToString()</h5>
+                              <div class="text">@ds.Tables[0].Rows[i]["Details"].ToString()</div>
+                            <div class="link"><a href="@ds.Tables[0].Rows[i]["Link"].ToString()" class="theme-btn-two">Read More</a></div>
+                        </div>
+                    </div>
+                </div>
+                            }
+                        }
+                    }
+
+
+
+            </div>
+
+        </div>
+    </section>*@
+<!-- service-style-two end -->
+<!-- event-section -->
+<section class="event-section event-style-two">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 column">
+                <div class="event-content">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-6 col-sm-12">
+                            <div class="content-box">
+                                <div class="event-title">Issues</div>
+                                @{
+                                    if (ds2 != null && ds2.Tables.Count > 0)
+                                    {
+                                        var table = ds2.Tables[0].DefaultView.ToTable();
+                                        if (table.Rows.Count > 0)
+                                        {
+                                            for (int i = 0; i < table.Rows.Count; i++)
+                                            {
+                                            <div class="single-item">
+                                                <h5><a href="@Url.Action("Index", "Article", new { id = table.Rows[i]["IssueId"] })">@table.Rows[i]["IssueHeading"].ToString()</a></h5>
+                                                <div class="odi-text">Date: @Convert.ToDateTime(table.Rows[i]["PublicationDate"].ToString()).ToString("dd MMM, yyyy")</div>
+                                                <div class="text"><i class="flaticon-pc"></i>Publication Number: @table.Rows[i]["PublicationNumber"].ToString()</div>
+                                            </div>
+                                                }
+                                            }
+                                        }
+                                    }
+                                @*<div class="single-item">
+                                        <h5><a href="event-details.html">Excepteur sint occaecat cupidatat non proident, sunt in culpa</a></h5>
+                                        <div class="odi-text">DOI: 10.29322/IJSRP.8.8.2018.p80113</div>
+                                        <div class="text"><i class="flaticon-pc"></i>Publisher’s website</div>
+                                    </div>*@
+                                @*<div class="single-item">
+                                        <h5><a href="event-details.html">Lorem ipsum dolor sit amet, consectetur eiusmod tempor incididunt</a></h5>
+                                        <div class="odi-text">DOI: 10.29322/IJSRP.8.8.2018.p80113</div>
+                                        <div class="text"><i class="flaticon-pc"></i>Publisher’s website</div>
+                                    </div>*@
+                            </div>
+                        </div>
+                        <div class="col-lg-5 col-md-6 col-sm-12">
+                            <figure class="image-box"><img src="~/images/resource/shutterstock_122471848.jpg" alt=""></figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 column">
+                <div class="latest-event">
+                    <div class="event-title">Archives</div>
+                    <div class="single-item">
+                        @*<h5><a href="">Haematopoietic stem cell transplan tation for autoimmune diseases</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>November, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Excepteur sint occaecat cupidatat non proident, sunt in culpa</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>October, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Lorem ipsum dolor sit amet, consectetur eiusmod tempor incididunt</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>September, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Inventore veritatis et quasi architebeatae vitae dicta sunt explicabo</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>August, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Inventore veritatis et quasi architebeatae vitae dicta sunt explicabo</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>July, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Inventore veritatis et quasi architebeatae vitae dicta sunt explicabo</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>June, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Inventore veritatis et quasi architebeatae vitae dicta sunt explicabo</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>May, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Inventore veritatis et quasi architebeatae vitae dicta sunt explicabo</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>April, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Inventore veritatis et quasi architebeatae vitae dicta sunt explicabo</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>March, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Inventore veritatis et quasi architebeatae vitae dicta sunt explicabo</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>February, 2019</div>
+                    </div>
+                    <div class="single-item">
+                        @*<h5><a href="">Inventore veritatis et quasi architebeatae vitae dicta sunt explicabo</a></h5>*@
+                        <div class="text"><i class="flaticon-small-calendar"></i>January, 2019</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- event-section -->
+<!-- cta-section -->
+@*<section class="cta-section" style="background-image: url(/images/background/ENT_Doctors_Head_and_Neck_Surgeon_Orange_County_2.jpg);">
+        <div class="container">
+            <div class="content-box">
+                <div class="cta-title">Want to Join With Us</div>
+                <div class="text">Join your hand with us for a better life and beautiful future</div>
+                <div class="link"><a href="@Url.Action("Index", "Contact")">Contact Us</a></div>
+            </div>
+        </div>
+    </section>*@
+<!-- cta-section end -->
+<!-- team-section -->
+<!-- team-section end -->
+<!-- news-section -->
+<section class="news-section gray-bg">
+    <div class="container">
+        <div class="title-box">
+            <div class="sec-title">ENT Journal Issues</div>
+            <div class="title-text">Latest Publication</div>
+        </div>
+        <div class="news-content">
+            <div class="three-column-carousel">
+                @{
+                    if (ds3 != null && ds3.Tables[0].Rows.Count > 0)
+                    {
+                        for (int i = 0; i < ds3.Tables[0].Rows.Count; i++)
+                        {
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="@Url.Content("~/images/gallery/" + @ds3.Tables[0].Rows[i]["ArticleImage"].ToString())" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="@Url.Action("ArticleDetails", "Article", new { id = ds3.Tables[0].Rows[i]["PublicationId"] })">@ds3.Tables[0].Rows[i]["ArticleName"].ToString()</a></h5>
+                                    @*<ul class="info-content">
+                                            <li>by <span>admin</span></li>
+                                            <li>on @Convert.ToDateTime(ds2.Tables[0].Rows[i]["PublicationDate"].ToString()).ToString("dd MMM, yyyy")</li>
+                                        </ul>*@
+                                    <a href="" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+                @*<div class="single-news-content">
+                        <figure class="image-box"><img src="/images/resource/news-2.jpg" alt=""></figure>
+                        <div class="content-box">
+                            <h5><a href="blog-details.html">Excepteur sint occaecat cupidatat.</a></h5>
+                            <ul class="info-content">
+                                <li>by <span>admin</span></li>
+                                <li>on 20 Oct, 2018</li>
+                            </ul>
+                            <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                        </div>
+                    </div>*@
+                @*<div class="single-news-content">
+                        <figure class="image-box"><img src="/images/resource/news-3.jpg" alt=""></figure>
+                        <div class="content-box">
+                            <h5><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur.</a></h5>
+                            <ul class="info-content">
+                                <li>by <span>admin</span></li>
+                                <li>on 25 Nov, 2018</li>
+                            </ul>
+                            <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+</section>
+<!-- news-section end -->

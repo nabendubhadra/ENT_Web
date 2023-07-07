@@ -1,0 +1,236 @@
+﻿@model ENT_Web.Models.AdminModel.Issue
+    @using System.Data;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    TempData["Issue"] = "current dropdown";
+
+    DataSet ds = (DataSet)ViewBag.Issue;
+    DataSet ds1 = (DataSet)ViewBag.Publication;
+}
+
+<!-- page-title -->
+<section class="page-title centred" style="background-image: url(/images/background/page-title.jpg);">
+    <div class="container">
+        <div class="content-box">
+            <div class="title">Issues</div>
+            <ul class="bread-crumb">
+                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                <li>Issue</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- page-title end -->
+<!-- our-blog -->
+<section class="our-blog news-section sidebar-page-container gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                <div class="our-blog-content default-blog-content">
+                    <div class="row">
+                        @{ 
+                            var table = ds.Tables[0].DefaultView.ToTable();
+                            if (ds != null && table.Rows.Count > 0)
+                            {
+                                for (int i = 0; i < table.Rows.Count; i++)
+                                {
+                        <div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src=@Url.Content("~/images/gallery/" + @table.Rows[i]["ImageFile"].ToString()) alt="No Image"></figure>
+                                <div class="content-box">
+                                    <h5><a href="@Url.Action("Index", "Article", new { id = table.Rows[i]["IssueId"] })">@table.Rows[i]["IssueHeading"].ToString()</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on @Convert.ToDateTime(table.Rows[i]["PublicationDate"].ToString()).ToString("dd MMM, yyyy")</li>
+                                    </ul>
+                                    <a href="" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                                }
+                            }
+                            }
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-2.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Haematopoietic stem cell transplant.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 21 Sep, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-3.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Excepteur sint occaecat cupidatat.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 10 Oct, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-4.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Lorem ipsum dolor sit amet, consectetur.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 25 Oct, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-5.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Immunology: T-cell tweaks to target tumours.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 21 Nov, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-6.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Molecular biology: Editing packs punch.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 30 Nov, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-7.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Cardiovascular disease: Commonality.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 08 Dec, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-8.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Immunology: T-cell tweaks target tumours.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 15 Dec, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-9.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Inventore veritatis et quasi architebeatae.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 25 Dec, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                        @*<div class="col-lg-6 col-md-6 col-sm-12 news-column">
+                            <div class="single-news-content">
+                                <figure class="image-box"><img src="/images/resource/news-10.jpg" alt=""></figure>
+                                <div class="content-box">
+                                    <h5><a href="blog-details.html">Lacinia eget consecte sed convallis.</a></h5>
+                                    <ul class="info-content">
+                                        <li>by <span>admin</span></li>
+                                        <li>on 30 Dec, 2018</li>
+                                    </ul>
+                                    <a href="blog-details.html" class="link"><i class="flaticon-next"></i></a>
+                                </div>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                <div class="sidebar default-sidebar-content">
+                    <div class="sidebar-search sidebar-widget">
+                        <div class="sidebar-title"><h4>Search</h4></div>
+                        <form action="#" method="post" class="search-form">
+                            <div class="form-group">
+                                <input type="search" name="search-field" placeholder="Search..." required="">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sidebar-category sidebar-widget">
+                        <div class="sidebar-title"><h4>Category</h4></div>
+                        <ul class="list">
+                            <li><a href="#">Molecular biology</a></li>
+                            <li><a href="#">Cardiovascular disease</a></li>
+                            <li><a href="#">Heart disease</a></li>
+                            <li><a href="#">Alternative medicine</a></li>
+                            <li><a href="#">Cancer disease</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-post sidebar-widget">
+                        <div class="sidebar-title"><h4>Latest Posts</h4></div>
+                        <div class="post-inner">
+                            @{ 
+                                if (ds1 != null && ds1.Tables[0].Rows.Count > 0)
+                                {
+                                    for (int i = 0; i < ds1.Tables[0].Rows.Count; i++)
+                                    {
+                            <div class="single-post">
+                                <h5><a href="@Url.Action("ArticleDetails", "Article", new { id = ds1.Tables[0].Rows[i]["PublicationId"] })">@ds1.Tables[0].Rows[i]["ArticleName"].ToString()</a></h5>
+                                @*<div class="post-date"><i class="flaticon-small-calendar"></i>Nov 02, 2018</div>*@
+                            </div>
+                                        }
+                                    }
+                                }
+                            @*<div class="single-post">
+            <h5><a href="">Excepteur sint occaecat cupidatat non proident, sunt in culpa.</a></h5>
+            <div class="post-date"><i class="flaticon-small-calendar"></i>Dec 10, 2018</div>
+        </div>
+        <div class="single-post">
+            <h5><a href="">Lorem ipsum dolor sit amet, consectetur eiusmod tempor incididunt.</a></h5>
+            <div class="post-date"><i class="flaticon-small-calendar"></i>Jan 02, 2019</div>
+        </div>*@
+                        </div>
+                    </div>
+                    <div class="sidebar-archives sidebar-widget">
+                        <div class="sidebar-title"><h4>Archives</h4></div>
+                        <ul class="list">
+                            <li><a href="#">March 2018</a></li>
+                            <li><a href="#">April 2018</a></li>
+                            <li><a href="#">May 2018</a></li>
+                            <li><a href="#">June 2018</a></li>
+                            <li><a href="#">July 2018</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- our-blog end -->

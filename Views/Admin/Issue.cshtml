@@ -1,0 +1,168 @@
+﻿@model ENT_Web.Models.AdminModel.Issue
+@{
+    ViewBag.Title = "Issue";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <h2>Issue</h2>
+        <p></p>
+
+        <div class="m-t-25">
+            @using (Html.BeginForm("Issue", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Heading :</label>
+                    <div class="col-md-5">
+                        @*<input type="text" class="form-control" placeholder="">*@
+                        @Html.TextBoxFor(m => m.IssueHeading, new { @class = "form-control", @type = "text" })
+                    </div>
+                    @Html.HiddenFor(m => m.IssueId)
+                </div>
+
+                @*<script type="text/javascript">
+                                window.onload = function () {
+                                    document.getElementById('ifYes').style.display = 'none';
+                                    //document.getElementById('ifNo').style.display = 'none';
+                                }
+
+                    function yesnoCheck() {
+                        if (document.getElementById('yesCheck').checked) {
+                                document.getElementById('ifYes').style.display = '';
+                            }
+                                    else if (document.getElementById('noCheck').checked) {
+                                    document.getElementById('ifYes').style.display = 'none';
+                                    document.getElementById('ifYes').value = 0;
+                                    @Html.HiddenFor(m=>m.IssuePosition)
+                                }
+                            }
+
+                            </script>*@
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Position :</label>
+                    @*<div class="radio">
+                        <input id="noCheck" name="radioDemo" type="radio" onclick="javascript: yesnoCheck();" checked="">
+                        <label for="noCheck">Default</label>
+                    </div>
+
+                    <div class="radio">
+                        <input id="yesCheck" name="radioDemo" type="radio" onclick="javascript: yesnoCheck();">
+                        <label for="yesCheck">Enter Number :</label>
+                    </div>*@
+                    <div class="col-sm-5">
+                        @*<input type="number" class="form-control" min="0" id="ifYes" placeholder="">
+                        @Html.TextBoxFor(m => m.IssuePosition, new { @class = "form-control", @id = "ifYes", @min = "0", @type = "number" })*@
+                        @Html.DropDownListFor(m => m.IssuePosition, new List<SelectListItem> {new SelectListItem { Text = "Default", Value = "0" }, new SelectListItem { Text = "1", Value = "1" },
+                        new SelectListItem { Text = "2", Value = "2" },new SelectListItem { Text = "3", Value = "3" },new SelectListItem { Text = "4", Value = "4" }, 
+                        new SelectListItem { Text = "5", Value = "5" },new SelectListItem { Text = "6", Value = "6" },new SelectListItem { Text = "7", Value = "7" },
+                        new SelectListItem { Text = "8", Value = "8" },new SelectListItem { Text = "9", Value = "9" },new SelectListItem { Text = "10", Value = "10" }}, new { @class = "form-control" })
+                        
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Cover Photo :</label>
+                    <div class="col-sm-5">
+                        <input type="file" class="form-control" id="img" name="ImageData" placeholder="" onchange="showMyImage(this)"/>Please use Image of resolution 370 X 370<br />
+                        <img id="thumbnail" src="@Url.Content("~/images/gallery/" + ViewBag.Image)" style="max-width: 100%;height: 100px; border-radius:10px;">
+                        @Html.HiddenFor(m => m.ImageFile)
+                    </div>
+                </div>
+                 
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Volume and Publication Number :</label>
+                    <div class="col-sm-5">
+                        @*<input type="number" min="0" class="form-control" placeholder="">*@
+                        @Html.TextBoxFor(m => m.PublicationNumber, new { @class = "form-control", @type = "text" })
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label control-label">Publication Date :</label>
+                    <div class="col-sm-5">
+                        @*<input type="date" min="0" class="form-control" placeholder="">*@
+                        @Html.TextBoxFor(m => m.PublicationDate, "{0:d}",new { @class = "form-control datepicker",@placeholder = "Select Date :: mm/dd/yyyy"})
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" value="Submit">Save</button>
+            }
+        </div>
+
+    </div>
+</div>
+<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.4/themes/smoothness/jquery-ui.css" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript">
+
+    $.noConflict();
+    jQuery(document).ready(function ($) {
+        $(function () {            
+            $(".datepicker").datepicker({
+                dateFormat: 'mm/dd/yy',
+                changeMonth: true,
+                changeYear: true,
+                maxDate: 0
+            });
+        });
+    });
+    function checkFileExtension(elem) {
+        var filePath = elem.value;
+        if (filePath.indexOf('.') == -1)
+            return false;
+        var validExtensions = new Array();
+        var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase();
+        validExtensions[0] = 'jpg';
+        validExtensions[1] = 'jpeg';
+        validExtensions[2] = 'bmp';
+        validExtensions[3] = 'png';
+        validExtensions[4] = 'gif';
+        for (var i = 0; i < validExtensions.length; i++) {
+            if (ext == validExtensions[i])
+                return true;
+        }
+        alert('The file extension ' + ext.toUpperCase() + ' is not allowed!');
+        elem.value = null;
+        return false;
+    }
+
+    function checkFileSize(elem) {
+
+        var fileSize = elem.files[0].size / 1024;
+        if (fileSize == 0 || fileSize > 200000) {
+            alert('The file size  ' + elem.files[0].size / 1024 + ' kb is not allowed!');
+            //$('#thumbnil').val('');
+            return false;
+        }
+        else { return true; }
+    }
+
+    function showMyImage(fileInput) {
+        if (checkFileExtension(fileInput) == true && checkFileSize(fileInput)) {
+
+            var files = fileInput.files;
+
+            var i;
+            for (i = 0; i < files.length; i++) {
+                var file = files[i];
+                var imageType = /image.*/;
+                if (!file.type.match(imageType)) {
+                    continue;
+                }
+                var img = document.getElementById("thumbnail");
+                img.file = file;
+                var reader = new FileReader();
+                reader.onload = (function (aImg) {
+                    return function (e) {
+                        aImg.src = e.target.result;
+                    };
+                })(img);
+
+                reader.readAsDataURL(file);
+            }
+        }
+    }
+</script>
+
+

@@ -1,0 +1,224 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+
+    TempData["Submit-Article"] = "current dropdown";
+}
+
+
+<section class="about-style-three">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-12 col-sm-12 title-column">
+                <div class="title-box">
+                    <div class="sec-title">Submit Article</div>
+                    <div class="title-text">
+                        Types of articles to be considered
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12 col-sm-12 content-column">
+                <div class="content-box">
+                    <div class="top-text">
+                        <h3 style="color:#b28824">
+                            WJEHNS welcomes original submissions of genuine research interest from all disciplines of
+                            otorhinolaryngology and head-neck surgery. All manuscripts should be typed in Microsoft Word Document in
+                            11 point Times New Roman or Arial font, with double-spacing. Right-hand side of the text should be justified.
+                        </h3>
+                    </div>
+                    <div class="text">
+                        <ol>
+                            <li><h5><b>.</b> Original research article (word limit: 3500 words; up to 40 references; 10 tables+figures)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Review articles (word limit: 4000; up to 60 references; 15 tables+figures)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Case series (word limit: 1500; up to 20 references; 5 tables+figures)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Case report (word limit: 1000; up to 15 references; 3 tables+figures)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Letters to the Editor (word limit: 500; up to 5 references)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Perspectives/Opinion Articles (word limit: 1500; up to 30 references; 5 tables+figures)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Guest Editorials (word limit: 1000; up to 15 references)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Clinical nuggets (word limit: 750; up to 10 references; 4 figures)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Clinical images (word limit: 500; up to 5 references; 5 figures)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Book reviews (word limit: 750; up to 5 references)</h5></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li><h5><b>.</b> Surgical techniques/”How I do it” (word limit: 1200; up to 10 references; 10 figures)</h5></li>
+                        </ol>
+                        <div>
+                            Every article should be accompanied by a <b>Title Page.</b>  It should consist of the title; names of the authors along with their full credentials, designation and affiliation; the name of the corresponding author, with his/her full postal address, affiliation, email address and contact number; statements related to
+                            any potential conflict of interest, ethical clearance and financial disclosures; and acknowledgments (if any).
+                        </div>
+                        <div>
+                            Every submission should be accompanied by a <b>Cover Letter</b>  where the authors should write to the Editor-in-Chief regarding their article,
+                            why they think it should be considered, and how it adds to the existing knowledge on the topic.
+                        </div>
+                        <div>
+                            A <b>structured abstract</b>   is essential for original research articles, review articles, case series and report, and “How I do it” type of articles. It should consist of Introduction, Methodology, Results, and Discussion. Word limit for
+                            abstracts should be up to 250, and this is included within the overall article word strength.
+                        </div>
+                        <div>
+                            <b>Key Words</b>  should consist of 4-6 representative entries used for searching purpose. They should be separated by semicolons,
+                            and should begin lower case except the first one. Key words are essential for all type of articles.
+                        </div>
+
+                        <div>
+                            References should follow the Vancouver style. Follow the details carefully as provided in the website <a href="https://guides.lib.monash.edu/citing-referencing/vancouver.">https://guides.lib.monash.edu/citing-referencing/vancouver.</a>  Journal abbreviations should be strictly according to
+                            the National Library of Medicine (NLM) recommendations. <a href="https://www.nlm.nih.gov/">https://www.nlm.nih.gov/</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="service-style-two">
+    <div class="container">
+        <div class="row">
+
+
+            @*<div class="col-lg-3 col-md-6 col-sm-12 service-column">
+        </div>*@
+
+            <div class="col-lg-6 col-md-6 col-sm-12 service-column">
+                <div class="single-service-content">
+                    <div class="lower-content">
+                        <h4>PEER REVIEW POLICY</h4>
+                        <div class="text">
+                            WJEHNS follows double-blinded peer review system where the authors and the peer reviewers remain unknown to each other. Following submission, the Editor-in-Chief will screen the articles for quality and technical aspects. Those which does not pass this screening procedure will be summarily returned to the corresponding author for necessary corrections. The rest will be assigned to at least two external peer reviewers. Peer review is a time-consuming process and may take up to two months. Authors are expected to receive the first decision on their submission by three months. Several rounds of revisions may be required to reach a final decision.
+                            The decision taken by the Editor-in-Chief should be final and abiding.
+                        </div>
+                        @*<div class="link"><a href="#" class="theme-btn-two">Read More</a></div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 service-column">
+
+
+                <div class="highlight_cont">
+                    <div class="lower-content" id="mr_cont">
+                        <h4>Article Submission</h4>
+                        <div class="text">
+                            Articles can be submitted my e-mail to editor.wjehns@gmail.com <br>
+                            Or <br>
+                            <b>In Hard copy, by post / courier to:</b>   <br>
+                            Prof.Dr.Somnath Saha <br>
+                            World Journal Of ENT-Head & Neck Surgery (WJEHNS) <br>
+                            The Chittaranjan ENT Society, West Bengal <br>
+                            CE 1/B/112, Street No. 181, Near NBCC Shopping Complex, <br>
+                            AA 1, New Town, <br>
+                            Kolkata - 156.
+                        </div>
+                        @*<div class="link"><a href="#" class="theme-btn-two">Read More</a></div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 service-column">
+                <div class="single-service-content">
+                    <div class="lower-content">
+                        <h4>ADVERTISING POLICY</h4>
+                        <div class="text">
+                            To meet the cost of journal production and maintenance of the website, WJEHNS will often allow space for advertisements from interested third party players. However, the journal will strictly refrain from being influenced by the advertisers for commercial gain, and there will be strictly no conflict of interest and financial obligations between the advertiser and the authorities of WJEHNS. In any case, all legal matters pertaining to WJEHNS (in printed or online format) shall be governed by the laws of India and
+                            fall strictly and solely under the Kolkata jurisdiction. <br> <br>
+
+                            @*Articles can be submitted my e-mail to <a href="editor.wjehns@gmail.com">editor.wjehns@gmail.com</a> <br>
+                        Or <br>
+                        <b>In Hard copy, by post / courier to:</b>   <br>
+                        Prof.Dr.Somnath Saha <br>
+                        World Journal Of ENT-Head & Neck Surgery (WJEHNS) <br>
+                        The Chittaranjan ENT Society, West Bengal <br>
+                        CE 1/B/112, Street No. 181, Near NBCC Shopping Complex, <br>
+                        AA 1, New Town, <br>
+                        Kolkata - 156.*@
+                        </div>
+                        @*<div class="link"><a href="#" class="theme-btn-two">Read More</a></div>*@
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 col-md-6 col-sm-12 service-column">
+                <div class="single-service-content">
+                    <div class="lower-content">
+                        <h4>ETHICAL POLICY</h4>
+                        <div class="text">
+                            WJEHNS considers <b>plagiarism</b>  in any form as a serious ethical misconduct. All submitted manuscripts will undergo screening for plagiarism, and if found to be guilty, the articles will not be processed further. <br>
+                            All studies and submissions related with patient particulars must bear the statement that the authors have obtained due <b>clearance or approval of the Institutional Ethical Committee,</b>  and that they have obtained <b>informed consent in writing</b>  from the patients. Animal studies should bear approval from the concerned authorities. WJEHNS may demand any of the above as proof during processing
+                            of the manuscript and even after it gets eventually published. <br>
+                            In all cases without exception, WJEHNS will follow the ethical guidelines laid down by COPE (Committee on Publication Ethics). The authors are requested to visit the website for further knowledge. <a href="https://publicationethics.org/">https://publicationethics.org/</a>  Information provided there sums up the policies of the journal’s retraction and Editorial expressions of concern regarding publication ethics. The responsibility for the originality of the submission including but not limited to all text, data,
+                            illustrations, descriptions of procedures, etc. lies with the author(s) only. <br>
+                            WJEHNS is not responsible and will not be held liable under any circumstances of alleged or proved plagiarism.
+                        </div>
+                        @*<div class="link"><a href="#" class="theme-btn-two">Read More</a></div>*@
+                    </div>
+                </div>
+            </div>
+            @*<div class="col-lg-6 col-md-6 col-sm-12 service-column">
+                <div class="single-service-content">
+                    <div class="lower-content">
+                        <h4>Aricle Submission</h4>
+                        <div class="text">
+                            Articles can be submitted my e-mail to <a href="editor.wjehns@gmail.com">editor.wjehns@gmail.com</a> <br>
+                            Or <br>
+                            <b>In Hard copy, by post / courier to:</b>   <br>
+                            Prof.Dr.Somnath Saha <br>
+                            World Journal Of ENT-Head & Neck Surgery (WJEHNS) <br>
+                            The Chittaranjan ENT Society, West Bengal <br>
+                            CE 1/B/112, Street No. 181, Near NBCC Shopping Complex, <br>
+                            AA 1, New Town, <br>
+                            Kolkata - 156.
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>*@
+        </div>
+    </div>
+</section>
+
+

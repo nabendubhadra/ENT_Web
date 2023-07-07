@@ -1,0 +1,70 @@
+﻿@model ENT_Web.Models.AdminModel.Publication
+@using System.Data;
+@{
+    ViewBag.Title = "PublicationList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+    DataSet ds = (DataSet)ViewBag.Publication;
+}
+
+<div class="card">
+    <div class="card-body">
+        <h2>Publication</h2>
+        <p></p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Article Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">PDF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        if (ds != null && ds.Tables[0].Rows.Count > 0)
+                        {
+                            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                            {
+
+                                <tr>
+                                    <td>@ds.Tables[0].Rows[i]["ArticleNumber"].ToString()</td>
+                                    <td>@ds.Tables[0].Rows[i]["ArticleName"].ToString()</td>
+                                    @if (ds.Tables[0].Rows[i]["ArticleImage"].ToString() != "")
+                                    {
+                                        <td><img src="@Url.Content("~/images/gallery/" + ds.Tables[0].Rows[i]["ArticleImage"].ToString())" style="max-width: 100%;height: 70px; border-radius:10px;" /> </td>
+                                    }
+                                    else
+                                    {
+                                        <td><img src="@Url.Content("~/images/gallery/no-picture.png")" style="max-width: 100%;height: 70px; border-radius:10px;" /> </td>
+                                    }
+                                    @*<td>@ds.Tables[0].Rows[i]["ArticleImage"].ToString()</td>*@
+                                    @if (ds.Tables[0].Rows[i]["Details"].ToString().Length > 150)
+                                    {
+                                        <td>@ds.Tables[0].Rows[i]["Details"].ToString().Substring(0, 150)..</td> }
+                                    else
+                                    {
+                                        <td>@ds.Tables[0].Rows[i]["Details"].ToString()</td>
+                                    }
+
+                                    @if (ds.Tables[0].Rows[i]["PDFFile"].ToString() != "")
+                                    {
+                                        <td><a href="@Url.Action("../images/gallery/" + ds.Tables[0].Rows[i]["PDFFile"].ToString())" download> <img src="@Url.Content("~/images/gallery/pdf.png")" style="max-width: 100%;height: 50px; border-radius:10px;" /></a> </td>
+                                    }
+                                    else
+                                    {
+                                        <td><img src="@Url.Content("~/images/gallery/no-pdf.png")" style="max-width: 100%;height: 50px; border-radius:10px;" /> </td>
+                                    }
+                                    @*<td><a href="'@Url.Content("~/images/gallery/" + ds.Tables[0].Rows[i]["PDFFile"].ToString())">@ds.Tables[0].Rows[i]["PDFFile"].ToString()</a></td>*@
+                                    <td><input type="button" class="btn btn-primary" value="Edit" onclick="location.href='@Url.Action("Publication","Admin", new { id = ds.Tables[0].Rows[i]["PublicationId"]})'"></td>
+                                </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

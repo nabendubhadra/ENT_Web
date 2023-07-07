@@ -1,0 +1,288 @@
+﻿@model ENT_Web.Models.ENTModel.NewsLetter
+<!DOCTYPE html>
+
+<html>
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3LGTRM6VSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3LGTRM6VSQ');
+</script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chittaranjan Otolaryngologists Society ,World Journal Of ENT & HEAD-NECK Surgery</title>
+
+    <!-- Stylesheets -->
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/responsive.css" rel="stylesheet">
+    <link href="/css/customize.css" rel="stylesheet">
+    <link href="/css/customizereponsive.css" rel="stylesheet" />
+
+    <link rel="icon" href="~/images/ENT-logo-ico.png" type="image/x-icon">
+</head>
+<body class="boxed_wrapper">
+    <!-- .preloader -->
+    <div class="preloader"></div>
+    <!-- /.preloader -->
+    <!-- Main Header -->
+    <header class="main-header">
+        <!-- header-top -->
+        <div class="header-top">
+            @*<div class="container">
+                <div class="clearfix">
+                    <div class="logo-box top-left">
+                        <figure class="logo-outer"><img src="~/images/WhatsApp1.png" alt=""></figure>
+                    </div>
+                    <div class="top-right">
+                        <ul class="header-info clearfix">
+                            <li><i class="flaticon-contact"></i>wjehns@gmail.com</li>
+                            <li><i class="flaticon-marker"></i>Kolkata, West Bengal</li>
+                            <li><a href="#" class="theme-btn">Join Research</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+
+            <div class="logo_div">
+                <img src="/images/WhatsApp1.png" alt="">
+            </div>
+
+            <div class="text_div">
+                <div> <img src="/images/text_line.png"> <h2> CHITTARANJAN OTOLARYNGOLOGISTS SOCIETY </h2> <img src="/images/text_line.png"></div>
+                <div> <h2> WORLD JOURNAL OF ENT & HEAD-NECK SURGERY </h2> </div>
+                <div> <img src="/images/text_line.png"> <h2> OPEN ACCESS ,DOUBLE-BLIND ,PEER REVIEWED </h2> <img src="/images/text_line.png"> </div>
+            </div>
+        </div>
+
+        <div class="logo_div">
+
+        </div>
+
+        <!-- header-top end -->
+        <!-- header-bottom -->
+        <div class="header-bottom">
+            <div class="container">
+                <div class="nav-outer clearfix">
+                    <div class="menu-area">
+                        <nav class="main-menu navbar-expand-lg">
+                            <div class="navbar-header">
+                                <!-- Toggle Button -->
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="navbar-collapse collapse clearfix">
+                                <ul class="navigation clearfix">
+                                    <li class="@TempData["Home"]">
+                                        <a href="@Url.Action("Index","Home")">Home</a>
+                                    </li>
+                                    <li class="@TempData["About-Us"]"><a href="@Url.Action("Index","About")">About Us</a></li>
+                                    
+                                    <li class="@TempData["Editorial-Board"]">
+                                        <a href="@Url.Action("Index","EditorialBoard")">Editorial Board</a>
+                                        @*<ul>
+                                            <li><a href="team.html">Our Team</a></li>
+                                            <li><a href="team-details.html">Team Details</a></li>
+                                        </ul>*@
+                                    </li>
+                                    <li class="@TempData["Issue"]">
+                                        <a href="@Url.Action("Index","Issue")">Issues</a>
+                                        @*<ul>
+                                            <li><a href="event.html">Our Events</a></li>
+                                            <li><a href="event-details.html">Event Details</a></li>
+                                        </ul>*@
+                                    </li>
+                                    @*<li class="dropdown">
+                                        <a href="#">Blog</a>
+                                        <ul>
+                                            <li><a href="blog.html">Our Blog</a></li>
+                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                        </ul>
+                                    </li>*@
+                                    <li class="@TempData["Submit-Article"]"><a href="@Url.Action("Index","SubmitArticle")">Submit Article</a></li>
+                                    <li class="@TempData["Contact"]"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div><!-- header-bottom end -->
+        <!--Sticky Header-->
+        <div class="sticky-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-sm-12 column">
+                        <figure class="logo-box"><a href=""><img src="~/images/WhatsApp1.png" alt=""></a></figure>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-sm-12 menu-column">
+                        <div class="menu-area">
+                            <nav class="main-menu navbar-expand-lg">
+                                <div class="navbar-header">
+                                    <!-- Toggle Button -->
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
+                                        <li class="@TempData["Home"]">
+                                            @*<li class="current dropdown">*@
+                                            <a href="@Url.Action("Index","Home")">Home</a>
+                                            @*<ul>
+                                                <li><a href="index-2.html">Home Page 01</a></li>
+                                                <li><a href="index-3.html">Home Page 02</a></li>
+                                                <li><a href="index-4.html">Home Page 03</a></li>
+                                                <li><a href="index-5.html">Home Page 04</a></li>
+                                                <li><a href="index-6.html">Home Page 05</a></li>
+                                            </ul>*@
+                                        </li>
+                                        <li class="@TempData["About-Us"]"><a href="@Url.Action("Index","About")">About Us</a></li>
+                                        @*<li class="dropdown">
+                                            <a href="#">Pages</a>
+                                            <ul>
+                                                <li><a href="research.html">Research Page</a></li>
+                                                <li><a href="books.html">Our Books</a></li>
+                                                <li><a href="articles.html">Journal Articles</a></li>
+                                                <li><a href="error.html">Error Page</a></li>
+                                            </ul>
+                                        </li>*@
+                                        <li class="@TempData["Editorial-Board"]"><a href="@Url.Action("Index","EditorialBoard")">Editorial Board</a></li>
+                                       
+                                        
+                                        <li class="@TempData["Issue"]">
+                                            <a href="@Url.Action("Index","Issue")">Issues</a>
+                                        </li>
+                                        @*<li class="dropdown">
+                                            <a href="#">Blog</a>
+                                            <ul>
+                                                <li><a href="blog.html">Our Blog</a></li>
+                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                            </ul>
+                                        </li>*@
+                                        <li class="@TempData["Submit-Article"]"><a href="@Url.Action("Index","SubmitArticle")">Submit Article</a></li>
+                                        <li class="@TempData["Contact"]"><a href="@Url.Action("Index","Contact")">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- sticky-header end -->
+    </header>
+    <!-- End Main Header -->
+    <div>
+        @RenderBody()
+    </div>
+    <!-- main-footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="widgets-section">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="logo-widget footer-widget">
+                            <figure class="footer-logo"><a href="index-2.html"><img src="~/images/WhatsApp1_grey.png" alt=""></a></figure>
+                            <div class="text">This is the mouthpiece of Chittaranjan Otorhinolaryngologists Society . And this mouth will be used to voice the views of researchers & their innovation on world platform.</div>
+                            <ul class="footer-social clearfix">
+                                <li><a href="https://www.facebook.com/World-Journal-Of-Ent-Head-Neck-Surgery-WJEHNS-101263008018639/"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="link-widget footer-widget">
+                            <div class="footer-title">Quick Link</div>
+                            <ul class="link-list">
+                                <li><a href="@Url.Action("Index","Home")">Home</a></li>
+                                <li><a href="@Url.Action("Index","SubmitArticle")">Research</a></li>
+                                <li><a href="@Url.Action("Index","Issue")">Publications</a></li>
+                                @*<li><a href="#">Events</a></li>*@
+                                <li><a href="@Url.Action("Index","Editorial Board")">Team</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="event-widget footer-widget">
+                            <div class="footer-title">Latest Events</div>
+                            <div class="single-event">
+                                <div class="link"><a href="">Haematopoietic stem cell tation for autoimmune</a></div>
+                                <div class="text"><i class="flaticon-small-calendar"></i>02 Nov, 2018</div>
+                            </div>
+                            <div class="single-event">
+                                <div class="link"><a href="">Inventore veritatis et quasi vitae dicta architebeatae</a></div>
+                                <div class="text"><i class="flaticon-small-calendar"></i>02 Dec, 2018</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="newsletter-widget footer-widget">
+                            <div class="footer-title">NewsLetter</div>
+                            <div class="text">Subscribe to our newsletter for updates.</div>
+                            
+                                @*@using (Html.BeginForm("Newsletter", "Home", FormMethod.Post))
+                                {
+                                <div class="form-group">
+                                    @*<input type="email" name="email" placeholder="Enter your email" required="">*@
+                                   @* @Html.TextBoxFor(m => m.EmailId, new { @type = "email", @name = "email", @placeholder = "Enter your email"})
+    </div>
+    <div class="form-group">
+        <button class="theme-btn" type="submit">Subscribe<i class="flaticon-next"></i></button>
+    </div>
+    }*@
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- main-footer end -->
+    <!-- footer-bottom -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="copyright"><a href="http://www.aaronmspl.com/" target="_blank">Aaron Technologies</a> &copy; 2019 All Right Reserved</div>
+        </div>
+    </div>
+    <!-- footer-bottom end -->
+    <!--Scroll to top-->
+    <button class="scroll-top scroll-to-target" data-target="html">
+        <span class="fa fa-angle-up"></span>
+    </button>
+
+
+
+    <!-- jequery plugins -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+
+    <script src="/js/owl.carousel.min.js"></script>
+    <script src="/js/wow.js"></script>
+    <script src="/js/validation.js"></script>
+    <script src="/js/isotope.js"></script>
+    <script src="/js/html5lightbox/html5lightbox.js"></script>
+    <script type="text/javascript" src="/js/SmoothScroll.js"></script>
+
+    <!-- map script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBevTAR-V2fDy9gQsQn1xNHBPH2D36kck0"></script>
+    <script src="/js/gmaps.js"></script>
+    <script src="/js/map-helper.js"></script>
+
+    <!-- main-js -->
+    <script src="/js/script.js"></script>
+
+</body>
+</html>

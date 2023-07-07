@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+
+.header-top{
+  display: flex;
+  padding: 5px 0px;
+  background: rgba(254, 215, 0, .5);
+
+}
+.logo_div{
+  flex-basis: 11%;
+  display: flex;
+  align-items: center;
+}
+.logo_div img{
+  width: 84%;
+  margin-left: auto;
+}
+
+.text_div{
+  flex-basis: 78%;
+  padding: 6px 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text_div div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.text_div div h2{
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  text-align: center;
+}
+
+.text_div div img{
+  width: 65px;
+}
+
+
+.text_div div:nth-child(1) h2{
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 5px;
+  font-size: 20px;
+  margin: 0px 1%;
+}
+
+.text_div div:nth-child(2) h2{
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 4px;
+  font-size: 30px;
+  margin: 10px 0px;
+}
+
+.text_div div:nth-child(3) h2{
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 4px;
+  font-size: 16px;
+  margin: 0px 1%;
+  
+  padding: 3px;
+}
+
+
+.slider-style-two .slide {
+  padding: 80px 0px;
+}
+     
